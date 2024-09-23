@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.udea.apptuneloriente.R
+import com.udea.apptuneloriente.ui.components.CustomButton
 
 @Composable
 fun WelcomeScreen(
@@ -90,22 +91,7 @@ fun WelcomeScreen(
 
         Spacer(modifier = Modifier.height(80.dp))
 
-        Button(
-            onClick = { /*TODO*/ },
-            modifier = Modifier.height(48.dp).width(220.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = colorResource(id = R.color.marigold)
-            )
-        ) {
-            Text(
-                text = stringResource(id = R.string.enter),
-                color = colorResource(id = R.color.white),
-                fontFamily = jostFontFamily,
-                fontWeight = FontWeight.Normal,
-                fontStyle = FontStyle.Normal,
-                fontSize = 20.sp,
-            )
-        }
+        CustomButton(text = stringResource(id = R.string.enter), onClick = {})
 
         Spacer(modifier = Modifier.height(16.dp))
 
