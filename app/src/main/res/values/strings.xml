@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TunelOriente</string>
-    <string name="welcome">¡Bienvenido!</string>
+    <string name="welcome">¡BIENVENIDO!</string>
     <string name="text_welcome_screen">La aplicación TunelOriente quiere ayudarte
 a detectar oportunamente los cierres en el
 túnel de Oriente para que llegues a tiempo
-a tu destino.</string>
-    <string name="enter">Ingresar</string>
+a tu destino</string>
+    <string name="enter">INGRESAR</string>
     <string name="are_you_admin">¿Eres administrador?</string>
     <string name="enter_here">Ingresa aquí</string>
     <string name="login">Iniciar sesión</string>

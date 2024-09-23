@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.udea.apptuneloriente.navigation.TunnelApp
-import com.udea.apptuneloriente.ui.theme.AppTunelOrienteActivity
 import com.udea.apptuneloriente.ui.theme.AppTunelOrienteTheme
 
 class MainActivity : ComponentActivity() {

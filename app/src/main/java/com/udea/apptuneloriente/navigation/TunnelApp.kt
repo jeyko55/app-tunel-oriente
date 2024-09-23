@@ -11,7 +11,7 @@ fun TunnelApp() {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = Routes.WELCOME_SCREEN) {
-        composable("welcome") { WelcomeScreen(navController) }
+        composable("welcomeScreen") { WelcomeScreen(navController) }
         // composable("login") { LoginScreen(navController) }
         // composable("recover_password") { RecoverPasswordScreen(navController) }
         // Más pantallas...
