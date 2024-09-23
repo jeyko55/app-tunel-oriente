@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.udea.apptuneloriente.navigation.TunnelApp
+import com.udea.apptuneloriente.ui.theme.AppTunelOrienteActivity
 import com.udea.apptuneloriente.ui.theme.AppTunelOrienteTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +21,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTunelOrienteTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                TunnelApp(
+
+                )
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AppTunelOrienteTheme {
-        Greeting("Android")
     }
 }
