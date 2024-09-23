@@ -10,13 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.udea.apptuneloriente.R
 
 @Composable
 fun WelcomeScreen(
-
-){
-    Box(modifier = Modifier){
+    navController: NavHostController,
+) {
+    Box(modifier = Modifier) {
         Column {
             Image(
                 painter = painterResource(id = R.drawable.logo),
