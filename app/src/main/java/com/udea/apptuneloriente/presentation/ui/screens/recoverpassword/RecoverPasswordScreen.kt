@@ -65,6 +65,7 @@ fun RecoverPasswordScreen(
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Normal,
             fontSize = 32.sp,
+            lineHeight = 40.sp,
         )
 
         Text(
@@ -95,6 +96,7 @@ fun RecoverPasswordScreen(
                     fontStyle = FontStyle.Normal,
                     fontSize = 16.sp,
                 )
+
                 Spacer(modifier = Modifier.height(8.dp))
 
                 TextField(
@@ -123,7 +125,7 @@ fun RecoverPasswordScreen(
 
         }
 
-        Spacer(modifier = Modifier.height(80.dp))
+        Spacer(modifier = Modifier.height(90.dp))
 
         CustomButton(
             text = stringResource(id = R.string.send),

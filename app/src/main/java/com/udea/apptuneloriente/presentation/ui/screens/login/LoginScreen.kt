@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.udea.apptuneloriente.R
 import com.udea.apptuneloriente.presentation.ui.components.CustomButton
+import com.udea.apptuneloriente.presentation.ui.navigation.Routes
 
 @Composable
 fun LoginScreen(
@@ -73,16 +74,22 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(80.dp))
 
-
         TextField(
-            //modifier = Modifier.fillMaxWidth(),
-            placeholder = { Text(text = "Email") },
+            placeholder = {
+                Text(
+                    text = stringResource(id = R.string.email_address),
+                    color = colorResource(id = R.color.dark_electric_blue),
+                )
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             singleLine = true,
             maxLines = 1,
+
             colors = TextFieldDefaults.colors(
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
+                focusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
+                unfocusedContainerColor = Color.Transparent,
+                focusedContainerColor = Color.Transparent,
             ),
             value = email,
             onValueChange = {
@@ -90,21 +97,32 @@ fun LoginScreen(
             },
         )
 
+        Spacer(modifier = Modifier.height(18.dp))
+
         TextField(
-            modifier = Modifier.fillMaxWidth(),
-            placeholder = { Text(text = "Email") },
+            placeholder = {
+                Text(
+                    text = stringResource(id = R.string.password),
+                    color = colorResource(id = R.color.dark_electric_blue),
+                )
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             singleLine = true,
             maxLines = 1,
+
             colors = TextFieldDefaults.colors(
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
+                focusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
+                unfocusedContainerColor = Color.Transparent,
+                focusedContainerColor = Color.Transparent,
             ),
             value = password,
             onValueChange = {
                 password = it
             },
         )
+
+        Spacer(modifier = Modifier.height(90.dp))
 
         CustomButton(
             text = stringResource(id = R.string.enter),
@@ -127,7 +145,8 @@ fun LoginScreen(
             )
 
             TextButton(
-                onClick = { /* Your click action here */ },
+                onClick = { navController.navigate(
+                    Routes.RECOVER_PASSWORD_SCREEN) },
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = colorResource(id = R.color.marigold)
                 ),
