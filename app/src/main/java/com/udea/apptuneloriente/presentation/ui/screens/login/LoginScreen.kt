@@ -75,6 +75,22 @@ fun LoginScreen(
 
 
         TextField(
+            //modifier = Modifier.fillMaxWidth(),
+            placeholder = { Text(text = "Email") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+            singleLine = true,
+            maxLines = 1,
+            colors = TextFieldDefaults.colors(
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+            ),
+            value = email,
+            onValueChange = {
+                email = it
+            },
+        )
+
+        TextField(
             modifier = Modifier.fillMaxWidth(),
             placeholder = { Text(text = "Email") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),

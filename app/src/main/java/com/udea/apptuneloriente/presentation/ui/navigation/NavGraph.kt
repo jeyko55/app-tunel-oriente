@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.udea.apptuneloriente.presentation.ui.screens.login.LoginScreen
+import com.udea.apptuneloriente.presentation.ui.screens.recoverpassword.RecoverPasswordScreen
 import com.udea.apptuneloriente.presentation.ui.screens.welcome.WelcomeScreen
 
 @Composable
@@ -13,7 +14,7 @@ fun NavGraph() {
 
     NavHost(
         navController = navController,
-        startDestination = Routes.WELCOME_SCREEN,
+        startDestination = Routes.RECOVER_PASSWORD_SCREEN,
         builder = {
             composable(route = Routes.WELCOME_SCREEN) {
                 WelcomeScreen(
@@ -22,6 +23,11 @@ fun NavGraph() {
             }
             composable(route = Routes.LOGIN_SCREEN) {
                 LoginScreen(
+                    navController
+                )
+            }
+            composable(route = Routes.RECOVER_PASSWORD_SCREEN) {
+                RecoverPasswordScreen(
                     navController
                 )
             }
