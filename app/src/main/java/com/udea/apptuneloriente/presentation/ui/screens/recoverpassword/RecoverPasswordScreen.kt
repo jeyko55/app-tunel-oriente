@@ -3,16 +3,13 @@ package com.udea.apptuneloriente.presentation.ui.screens.recoverpassword
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -39,7 +36,7 @@ import com.udea.apptuneloriente.presentation.ui.components.CustomButton
 
 @Composable
 fun RecoverPasswordScreen(
-    navController: NavHostController,
+    onSendSelected: () -> Unit,
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -129,7 +126,7 @@ fun RecoverPasswordScreen(
 
         CustomButton(
             text = stringResource(id = R.string.send),
-            onClick = {}
+            onClick = { onSendSelected() }
         )
 
         Spacer(modifier = Modifier.height(16.dp))

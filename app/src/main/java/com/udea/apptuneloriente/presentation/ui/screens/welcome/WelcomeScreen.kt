@@ -31,8 +31,8 @@ import com.udea.apptuneloriente.presentation.ui.navigation.Routes
 
 @Composable
 fun WelcomeScreen(
-    navController: NavHostController,
-
+    onEnterSelected: () -> Unit,
+    onEnterHereSelected: () -> Unit,
 ) {
 
     Column(
@@ -90,7 +90,10 @@ fun WelcomeScreen(
 
         Spacer(modifier = Modifier.height(80.dp))
 
-        CustomButton(text = stringResource(id = R.string.enter), onClick = {})
+        CustomButton(
+            text = stringResource(id = R.string.enter),
+            onClick = { onEnterSelected() }
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -108,8 +111,7 @@ fun WelcomeScreen(
             )
 
             TextButton(
-                onClick = { navController.navigate(
-                    Routes.LOGIN_SCREEN) },
+                onClick = { onEnterHereSelected() },
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = colorResource(id = R.color.marigold)
                 ),

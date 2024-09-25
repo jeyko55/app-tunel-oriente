@@ -37,7 +37,8 @@ import com.udea.apptuneloriente.presentation.ui.navigation.Routes
 
 @Composable
 fun LoginScreen(
-    navController: NavHostController,
+    onEnterSelected: () -> Unit,
+    onClickHereSelected: () -> Unit,
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -126,7 +127,7 @@ fun LoginScreen(
 
         CustomButton(
             text = stringResource(id = R.string.enter),
-            onClick = {}
+            onClick = { onEnterSelected() }
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -145,8 +146,7 @@ fun LoginScreen(
             )
 
             TextButton(
-                onClick = { navController.navigate(
-                    Routes.RECOVER_PASSWORD_SCREEN) },
+                onClick = { onClickHereSelected() },
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = colorResource(id = R.color.marigold)
                 ),
