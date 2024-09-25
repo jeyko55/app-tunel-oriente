@@ -100,9 +100,9 @@ fun LoginScreen(
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
             ),
-            value = email,
+            value = password,
             onValueChange = {
-                email = it
+                password = it
             },
         )
 

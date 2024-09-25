@@ -32,6 +32,7 @@ import com.udea.apptuneloriente.presentation.ui.navigation.Routes
 @Composable
 fun WelcomeScreen(
     navController: NavHostController,
+
 ) {
 
     Column(

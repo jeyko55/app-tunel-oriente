@@ -14,10 +14,11 @@ fun NavGraph() {
 
     NavHost(
         navController = navController,
-        startDestination = Routes.RECOVER_PASSWORD_SCREEN,
+        startDestination = Routes.WELCOME_SCREEN,
         builder = {
             composable(route = Routes.WELCOME_SCREEN) {
                 WelcomeScreen(
+
                     navController
                 )
             }
