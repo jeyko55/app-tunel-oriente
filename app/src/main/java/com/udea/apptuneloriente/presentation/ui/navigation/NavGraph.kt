@@ -1,14 +1,14 @@
-package com.udea.apptuneloriente.navigation
+package com.udea.apptuneloriente.presentation.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.udea.apptuneloriente.ui.auth.LoginScreen
-import com.udea.apptuneloriente.ui.auth.WelcomeScreen
+import com.udea.apptuneloriente.presentation.ui.screens.login.LoginScreen
+import com.udea.apptuneloriente.presentation.ui.screens.welcome.WelcomeScreen
 
 @Composable
-fun TunnelApp() {
+fun NavGraph() {
     val navController = rememberNavController()
 
     NavHost(

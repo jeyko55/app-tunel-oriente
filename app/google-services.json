@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "196906074887",
+    "project_id": "app-tunel-oriente",
+    "storage_bucket": "app-tunel-oriente.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196906074887:android:8c9b4fc5cae5a6c653fba2",
+        "android_client_info": {
+          "package_name": "com.udea.apptuneloriente"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTuHkTXW0BdUtbclC2fIioaYEx_-eTZKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

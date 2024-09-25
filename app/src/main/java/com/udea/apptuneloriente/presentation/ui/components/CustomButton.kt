@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.ui.components
+package com.udea.apptuneloriente.presentation.ui.components
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width

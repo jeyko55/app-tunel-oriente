@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.ui.auth
+package com.udea.apptuneloriente.presentation.ui.screens.welcome
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -7,19 +7,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -27,17 +22,18 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.udea.apptuneloriente.R
-import com.udea.apptuneloriente.ui.components.CustomButton
+import com.udea.apptuneloriente.presentation.ui.components.CustomButton
+import com.udea.apptuneloriente.presentation.ui.navigation.Routes
 
 @Composable
-fun LoginScreen(
+fun WelcomeScreen(
     navController: NavHostController,
 ) {
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -49,8 +45,16 @@ fun LoginScreen(
             Font(R.font.jost_bold, FontWeight.Bold)
         )
 
+        Image(
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = "Logo",
+            modifier = Modifier
+                .height(100.dp)
+                .width(92.dp)
+        )
+
         Text(
-            text = stringResource(id = R.string.login),
+            text = stringResource(id = R.string.welcome),
             color = colorResource(id = R.color.dark_electric_blue),
             fontFamily = jostFontFamily,
             fontWeight = FontWeight.Bold,
@@ -67,30 +71,25 @@ fun LoginScreen(
             fontSize = 16.sp,
         )
 
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Box(
+            modifier = Modifier.width(350.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = stringResource(id = R.string.text_welcome_screen),
+                color = colorResource(id = R.color.dark_electric_blue),
+                fontFamily = jostFontFamily,
+                fontWeight = FontWeight.Normal,
+                fontStyle = FontStyle.Normal,
+                fontSize = 20.sp,
+            )
+        }
+
         Spacer(modifier = Modifier.height(80.dp))
 
-       /* TextField(
-            modifier = Modifier.fillMaxWidth(),
-            placeholder = { Text(text = "Nombre completo") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-            singleLine = true,
-            maxLines = 1,
-            colors = TextFieldDefaults.colors(
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
-            ),
-            value = userState.name,
-            onValueChange = {
-                onUserEvent(UserEvent.SetName(it))
-            },
-        )
-
-        */
-
-        CustomButton(
-            text = stringResource(id = R.string.enter),
-            onClick = {}
-        )
+        CustomButton(text = stringResource(id = R.string.enter), onClick = {})
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -99,7 +98,7 @@ fun LoginScreen(
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = stringResource(id = R.string.forgot_password),
+                text = stringResource(id = R.string.are_you_admin),
                 color = colorResource(id = R.color.dark_electric_blue),
                 fontFamily = jostFontFamily,
                 fontWeight = FontWeight.Normal,
@@ -108,13 +107,14 @@ fun LoginScreen(
             )
 
             TextButton(
-                onClick = { /* Your click action here */ },
+                onClick = { navController.navigate(
+                    Routes.LOGIN_SCREEN) },
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = colorResource(id = R.color.marigold)
                 ),
             ) {
                 Text(
-                    text = stringResource(id = R.string.click_here),
+                    text = stringResource(id = R.string.enter_here),
                     fontFamily = jostFontFamily,
                     fontWeight = FontWeight.Bold,
                     fontStyle = FontStyle.Normal,

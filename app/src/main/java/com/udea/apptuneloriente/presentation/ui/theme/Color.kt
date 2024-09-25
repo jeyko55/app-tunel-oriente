@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.ui.theme
+package com.udea.apptuneloriente.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
