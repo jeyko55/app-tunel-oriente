@@ -1,13 +1,13 @@
-package com.udea.apptuneloriente.presentation.ui.navigation
+package com.udea.apptuneloriente.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.udea.apptuneloriente.presentation.ui.screens.login.LoginScreen
-import com.udea.apptuneloriente.presentation.ui.screens.recoverpassword.RecoverPasswordScreen
-import com.udea.apptuneloriente.presentation.ui.screens.welcome.WelcomeScreen
+import com.udea.apptuneloriente.presentation.screens.login.LoginScreen
+import com.udea.apptuneloriente.presentation.screens.recoverpassword.RecoverPasswordScreen
+import com.udea.apptuneloriente.presentation.screens.initial.InitialScreen
 
 @Composable
 fun NavGraph() {
@@ -15,10 +15,10 @@ fun NavGraph() {
 
     NavHost(
         navController = navController,
-        startDestination = Routes.WELCOME_SCREEN,
+        startDestination = Routes.INITIAL_SCREEN,
         builder = {
-            composable(route = Routes.WELCOME_SCREEN) {
-                WelcomeScreen(
+            composable(route = Routes.INITIAL_SCREEN) {
+                InitialScreen(
                     onEnterSelected = {
                         // navController.navigate(Routes.HomeScreen)
                     },

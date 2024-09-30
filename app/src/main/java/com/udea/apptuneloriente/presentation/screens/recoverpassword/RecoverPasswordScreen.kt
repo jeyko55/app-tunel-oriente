@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.ui.screens.recoverpassword
+package com.udea.apptuneloriente.presentation.screens.recoverpassword
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -32,7 +32,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.udea.apptuneloriente.R
-import com.udea.apptuneloriente.presentation.ui.components.CustomButton
+import com.udea.apptuneloriente.presentation.components.CustomButton
+import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
+import com.udea.apptuneloriente.ui.theme.MariGold
 
 @Composable
 fun RecoverPasswordScreen(
@@ -57,7 +59,7 @@ fun RecoverPasswordScreen(
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center,
             text = stringResource(id = R.string.recover_password),
-            color = colorResource(id = R.color.dark_electric_blue),
+            color = DarkElectricBlue,
             fontFamily = jostFontFamily,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Normal,
@@ -67,7 +69,7 @@ fun RecoverPasswordScreen(
 
         Text(
             text = stringResource(id = R.string.tunel_oriente),
-            color = colorResource(id = R.color.marigold),
+            color = MariGold,
             fontFamily = jostFontFamily,
             fontWeight = FontWeight.Normal,
             fontStyle = FontStyle.Normal,
@@ -87,7 +89,7 @@ fun RecoverPasswordScreen(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     text = stringResource(id = R.string.recover_password_text),
-                    color = colorResource(id = R.color.marigold),
+                    color = MariGold,
                     fontFamily = jostFontFamily,
                     fontWeight = FontWeight.Normal,
                     fontStyle = FontStyle.Normal,
@@ -100,7 +102,7 @@ fun RecoverPasswordScreen(
                     placeholder = {
                         Text(
                             text = stringResource(id = R.string.email_address),
-                            color = colorResource(id = R.color.dark_electric_blue),
+                            color = DarkElectricBlue,
                         )
                     },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
@@ -108,8 +110,8 @@ fun RecoverPasswordScreen(
                     maxLines = 1,
 
                     colors = TextFieldDefaults.colors(
-                        unfocusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
-                        focusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
+                        unfocusedIndicatorColor = DarkElectricBlue,
+                        focusedIndicatorColor = DarkElectricBlue,
                         unfocusedContainerColor = Color.Transparent,
                         focusedContainerColor = Color.Transparent,
                     ),

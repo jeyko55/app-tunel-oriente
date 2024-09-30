@@ -1,7 +1,7 @@
-package com.udea.apptuneloriente.presentation.ui.navigation
+package com.udea.apptuneloriente.presentation.navigation
 
 object Routes {
-    val WELCOME_SCREEN = "welcomeScreen"
+    val INITIAL_SCREEN = "initialScreen"
     val LOGIN_SCREEN = "loginScreen"
     val RECOVER_PASSWORD_SCREEN = "recoverPasswordScreen"
 }

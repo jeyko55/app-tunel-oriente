@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.ui.components
+package com.udea.apptuneloriente.presentation.components
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.udea.apptuneloriente.R
+import com.udea.apptuneloriente.ui.theme.MariGold
 
 @Composable
 fun CustomButton(text: String, onClick: () -> Unit) {
@@ -31,7 +32,7 @@ fun CustomButton(text: String, onClick: () -> Unit) {
             .height(48.dp)
             .width(220.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = colorResource(id = R.color.marigold)
+            containerColor = MariGold
         )
     ) {
         Text(

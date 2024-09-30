@@ -1,6 +1,7 @@
-package com.udea.apptuneloriente.presentation.ui.screens.welcome
+package com.udea.apptuneloriente.presentation.screens.initial
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -24,19 +26,19 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.udea.apptuneloriente.R
-import com.udea.apptuneloriente.presentation.ui.components.CustomButton
-import com.udea.apptuneloriente.presentation.ui.navigation.Routes
+import com.udea.apptuneloriente.presentation.components.CustomButton
+import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
+import com.udea.apptuneloriente.ui.theme.MariGold
 
 @Composable
-fun WelcomeScreen(
+fun InitialScreen(
     onEnterSelected: () -> Unit,
     onEnterHereSelected: () -> Unit,
 ) {
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(color = Color.White),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     )
@@ -56,7 +58,7 @@ fun WelcomeScreen(
 
         Text(
             text = stringResource(id = R.string.welcome),
-            color = colorResource(id = R.color.dark_electric_blue),
+            color = MariGold,
             fontFamily = jostFontFamily,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Normal,
@@ -65,7 +67,7 @@ fun WelcomeScreen(
 
         Text(
             text = stringResource(id = R.string.tunel_oriente),
-            color = colorResource(id = R.color.marigold),
+            color = MariGold,
             fontFamily = jostFontFamily,
             fontWeight = FontWeight.Normal,
             fontStyle = FontStyle.Normal,
@@ -80,7 +82,7 @@ fun WelcomeScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.text_welcome_screen),
-                color = colorResource(id = R.color.dark_electric_blue),
+                color = DarkElectricBlue,
                 fontFamily = jostFontFamily,
                 fontWeight = FontWeight.Normal,
                 fontStyle = FontStyle.Normal,
@@ -103,7 +105,7 @@ fun WelcomeScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.are_you_admin),
-                color = colorResource(id = R.color.dark_electric_blue),
+                color = DarkElectricBlue,
                 fontFamily = jostFontFamily,
                 fontWeight = FontWeight.Normal,
                 fontStyle = FontStyle.Normal,
@@ -113,7 +115,7 @@ fun WelcomeScreen(
             TextButton(
                 onClick = { onEnterHereSelected() },
                 colors = ButtonDefaults.textButtonColors(
-                    contentColor = colorResource(id = R.color.marigold)
+                    contentColor = MariGold
                 ),
             ) {
                 Text(

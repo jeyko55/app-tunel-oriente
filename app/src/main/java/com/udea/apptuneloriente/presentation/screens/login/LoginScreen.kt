@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.ui.screens.login
+package com.udea.apptuneloriente.presentation.screens.login
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -32,8 +32,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.udea.apptuneloriente.R
-import com.udea.apptuneloriente.presentation.ui.components.CustomButton
-import com.udea.apptuneloriente.presentation.ui.navigation.Routes
+import com.udea.apptuneloriente.presentation.components.CustomButton
+import com.udea.apptuneloriente.presentation.navigation.Routes
+import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
+import com.udea.apptuneloriente.ui.theme.MariGold
 
 @Composable
 fun LoginScreen(
@@ -57,7 +59,7 @@ fun LoginScreen(
 
         Text(
             text = stringResource(id = R.string.login),
-            color = colorResource(id = R.color.dark_electric_blue),
+            color = DarkElectricBlue,
             fontFamily = jostFontFamily,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Normal,
@@ -66,7 +68,7 @@ fun LoginScreen(
 
         Text(
             text = stringResource(id = R.string.tunel_oriente),
-            color = colorResource(id = R.color.marigold),
+            color = MariGold,
             fontFamily = jostFontFamily,
             fontWeight = FontWeight.Normal,
             fontStyle = FontStyle.Normal,
@@ -79,7 +81,7 @@ fun LoginScreen(
             placeholder = {
                 Text(
                     text = stringResource(id = R.string.email_address),
-                    color = colorResource(id = R.color.dark_electric_blue),
+                    color = DarkElectricBlue,
                 )
             },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
@@ -87,8 +89,8 @@ fun LoginScreen(
             maxLines = 1,
 
             colors = TextFieldDefaults.colors(
-                unfocusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
-                focusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
+                unfocusedIndicatorColor = DarkElectricBlue,
+                focusedIndicatorColor = DarkElectricBlue,
                 unfocusedContainerColor = Color.Transparent,
                 focusedContainerColor = Color.Transparent,
             ),
@@ -104,7 +106,7 @@ fun LoginScreen(
             placeholder = {
                 Text(
                     text = stringResource(id = R.string.password),
-                    color = colorResource(id = R.color.dark_electric_blue),
+                    color = DarkElectricBlue,
                 )
             },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
@@ -112,8 +114,8 @@ fun LoginScreen(
             maxLines = 1,
 
             colors = TextFieldDefaults.colors(
-                unfocusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
-                focusedIndicatorColor = colorResource(id = R.color.dark_electric_blue),
+                unfocusedIndicatorColor = DarkElectricBlue,
+                focusedIndicatorColor = DarkElectricBlue,
                 unfocusedContainerColor = Color.Transparent,
                 focusedContainerColor = Color.Transparent,
             ),
@@ -138,7 +140,7 @@ fun LoginScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.forgot_password),
-                color = colorResource(id = R.color.dark_electric_blue),
+                color = DarkElectricBlue,
                 fontFamily = jostFontFamily,
                 fontWeight = FontWeight.Normal,
                 fontStyle = FontStyle.Normal,
@@ -148,7 +150,7 @@ fun LoginScreen(
             TextButton(
                 onClick = { onClickHereSelected() },
                 colors = ButtonDefaults.textButtonColors(
-                    contentColor = colorResource(id = R.color.marigold)
+                    contentColor = MariGold
                 ),
             ) {
                 Text(

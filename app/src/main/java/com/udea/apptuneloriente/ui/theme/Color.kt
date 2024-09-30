@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.ui.theme
+package com.udea.apptuneloriente.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -9,3 +9,8 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+val MariGold = Color(0xFFF29C1F)
+val DarkElectricBlue = Color(0xFF547580)
+
+

@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.ui.states
+package com.udea.apptuneloriente.presentation.states
 
 data class EventState(
     val eventType: String = "",
