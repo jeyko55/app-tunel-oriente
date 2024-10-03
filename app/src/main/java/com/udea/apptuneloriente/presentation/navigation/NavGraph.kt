@@ -10,6 +10,7 @@ import com.udea.apptuneloriente.presentation.screens.initial.InitialScreen
 import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
 import com.udea.apptuneloriente.presentation.screens.login.LoginScreen
 import com.udea.apptuneloriente.presentation.screens.recoverpassword.RecoverPasswordScreen
+import com.udea.apptuneloriente.presentation.screens.management.ManagementScreen
 
 @Composable
 fun NavGraph(
@@ -35,7 +36,7 @@ fun NavGraph(
                 LoginScreen(
                     authViewModel,
                     onEnterSelected = {
-                         navController.navigate(Routes.HOME_SCREEN)
+                         navController.navigate(Routes.MANAGEMENT_SCREEN)
                     },
                     onClickHereSelected = {
                         navController.navigate(Routes.RECOVER_PASSWORD_SCREEN)
@@ -51,6 +52,11 @@ fun NavGraph(
             }
             composable(route = Routes.HOME_SCREEN) {
                 HomeScreen(
+
+                )
+            }
+            composable(route = Routes.MANAGEMENT_SCREEN) {
+                ManagementScreen (
 
                 )
             }

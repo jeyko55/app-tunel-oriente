@@ -14,10 +14,10 @@ import com.udea.apptuneloriente.R
 
 @Composable
 fun HomeScreen(
-    
+
 ) {
     // var email by remember { mutableStateOf("") }
-    
+
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -29,7 +29,7 @@ fun HomeScreen(
             Font(R.font.jost, FontWeight.Normal),
             Font(R.font.jost_bold, FontWeight.Bold)
         )
-        
+
         Text(text = "Esta es la HomeScreen")
     }
 }
