@@ -44,7 +44,9 @@ import com.udea.apptuneloriente.ui.theme.MariGold
 import kotlin.text.append
 
 @Composable
-fun ManagementScreen() {
+fun ManagementScreen(
+    onEnterSelected: () -> Unit
+) {
     val jostFontFamily = FontFamily(
         Font(R.font.jost, FontWeight.Normal),
         Font(R.font.jost_bold, FontWeight.Bold)
@@ -86,21 +88,24 @@ fun ManagementScreen() {
             icon = Icons.Filled.Add,
             contentDescription = "Add",
             buttonText = "Añadir nuevo elemento",
-            jostFontFamily = jostFontFamily
+            jostFontFamily = jostFontFamily,
+            onClick = { onEnterSelected() }
         )
 
         RowItem(
             icon = Icons.Filled.RotateLeft,
             contentDescription = "Rotate Left",
             buttonText = "Consultar estado actual",
-            jostFontFamily = jostFontFamily
+            jostFontFamily = jostFontFamily,
+            onClick = { /* TODO: Handle button click */ }
         )
 
         RowItem(
             icon = Icons.Filled.History,
             contentDescription = "History",
             buttonText = "Ver historial de eventos",
-            jostFontFamily = jostFontFamily
+            jostFontFamily = jostFontFamily,
+            onClick = { /* TODO: Handle button click */ }
         )
     }
 }
@@ -111,6 +116,7 @@ fun RowItem(
     contentDescription: String,
     buttonText: String,
     jostFontFamily: FontFamily,
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -140,7 +146,8 @@ fun RowItem(
 
         // Text button
         Button(
-            onClick = { /* TODO: Handle button click */ },
+            //onClick = { /* TODO: Handle button click */ },
+            onClick = onClick,
             modifier = Modifier.height(48.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent,

@@ -6,4 +6,5 @@ object Routes {
     val RECOVER_PASSWORD_SCREEN = "recoverPasswordScreen"
     val HOME_SCREEN = "homeScreen"
     val MANAGEMENT_SCREEN = "managementScreen"
+    val ADD_EVENT_SCREEN = "addEventScreen"
 }

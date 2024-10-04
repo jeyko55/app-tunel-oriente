@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.udea.apptuneloriente.presentation.screens.addevent.AddEventScreen
 import com.udea.apptuneloriente.presentation.screens.homescreen.HomeScreen
 import com.udea.apptuneloriente.presentation.screens.initial.InitialScreen
 import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
@@ -57,6 +58,13 @@ fun NavGraph(
             }
             composable(route = Routes.MANAGEMENT_SCREEN) {
                 ManagementScreen (
+                    onEnterSelected = {
+                        navController.navigate(Routes.ADD_EVENT_SCREEN)
+                    },
+                )
+            }
+            composable(route = Routes.ADD_EVENT_SCREEN) {
+                AddEventScreen(
 
                 )
             }
