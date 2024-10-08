@@ -18,7 +18,7 @@ import com.udea.apptuneloriente.R
 import com.udea.apptuneloriente.ui.theme.MariGold
 
 @Composable
-fun CustomButton(text: String, onClick: () -> Unit, enabled: Boolean = true) {
+fun CustomButton(text: String, onClick: () -> Unit, enabled: Boolean = true, fontWeight: FontWeight = FontWeight.Normal) {
 
     val jostFontFamily = FontFamily(
         Font(R.font.jost, FontWeight.Normal),
@@ -39,7 +39,7 @@ fun CustomButton(text: String, onClick: () -> Unit, enabled: Boolean = true) {
             text = text,
             color = colorResource(id = R.color.white),
             fontFamily = jostFontFamily,
-            fontWeight = FontWeight.Normal,
+            fontWeight = fontWeight,
             fontStyle = FontStyle.Normal,
             fontSize = 20.sp,
         )

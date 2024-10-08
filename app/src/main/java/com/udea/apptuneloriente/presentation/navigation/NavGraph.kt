@@ -12,6 +12,7 @@ import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
 import com.udea.apptuneloriente.presentation.screens.login.LoginScreen
 import com.udea.apptuneloriente.presentation.screens.recoverpassword.RecoverPasswordScreen
 import com.udea.apptuneloriente.presentation.screens.management.ManagementScreen
+import com.udea.apptuneloriente.presentation.screens.stateadmin.StateAdminScreen
 
 @Composable
 fun NavGraph(
@@ -37,7 +38,7 @@ fun NavGraph(
                 LoginScreen(
                     authViewModel,
                     onEnterSelected = {
-                         navController.navigate(Routes.MANAGEMENT_SCREEN)
+                        navController.navigate(Routes.MANAGEMENT_SCREEN)
                     },
                     onClickHereSelected = {
                         navController.navigate(Routes.RECOVER_PASSWORD_SCREEN)
@@ -58,15 +59,23 @@ fun NavGraph(
             }
             composable(route = Routes.MANAGEMENT_SCREEN) {
                 ManagementScreen (
-                    onEnterSelected = {
+                    onAddSelected = {
                         navController.navigate(Routes.ADD_EVENT_SCREEN)
                     },
+                    onStateSelected = {
+                        navController.navigate(Routes.STATE_ADMIN_SCREEN)
+                    }
                 )
             }
             composable(route = Routes.ADD_EVENT_SCREEN) {
                 AddEventScreen(
 
                 )
+            }
+            composable(route = Routes.STATE_ADMIN_SCREEN) {
+                StateAdminScreen(
+
+                    )
             }
             // composable("recover_password") { RecoverPasswordScreen(navController) }
             // Más pantallas...

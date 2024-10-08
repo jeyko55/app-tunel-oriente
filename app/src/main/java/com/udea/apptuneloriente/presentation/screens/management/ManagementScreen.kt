@@ -45,7 +45,8 @@ import kotlin.text.append
 
 @Composable
 fun ManagementScreen(
-    onEnterSelected: () -> Unit
+    onAddSelected: () -> Unit,
+    onStateSelected: () -> Unit
 ) {
     val jostFontFamily = FontFamily(
         Font(R.font.jost, FontWeight.Normal),
@@ -89,7 +90,7 @@ fun ManagementScreen(
             contentDescription = "Add",
             buttonText = "Añadir nuevo elemento",
             jostFontFamily = jostFontFamily,
-            onClick = { onEnterSelected() }
+            onClick = { onAddSelected() }
         )
 
         RowItem(
@@ -97,7 +98,7 @@ fun ManagementScreen(
             contentDescription = "Rotate Left",
             buttonText = "Consultar estado actual",
             jostFontFamily = jostFontFamily,
-            onClick = { /* TODO: Handle button click */ }
+            onClick = { onStateSelected() }
         )
 
         RowItem(
@@ -118,42 +119,40 @@ fun RowItem(
     jostFontFamily: FontFamily,
     onClick: () -> Unit
 ) {
-    Row(
+    Button(
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color.Transparent,
+            contentColor = MariGold
+        ),
+        contentPadding = ButtonDefaults.ContentPadding
     ) {
-        // Circle with icon
-        Box(
-            modifier = Modifier
-                .size(48.dp)
-                .background(
-                    color = MariGold,
-                    shape = CircleShape
-                ),
-            contentAlignment = Alignment.Center
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = contentDescription,
-                tint = Color.White
-            )
-        }
+            Box(
+                modifier = Modifier
+                    .size(48.dp)
+                    .background(
+                        color = MariGold,
+                        shape = CircleShape
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = contentDescription,
+                    tint = Color.White,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
 
-        Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(16.dp))
 
-        // Text button
-        Button(
-            //onClick = { /* TODO: Handle button click */ },
-            onClick = onClick,
-            modifier = Modifier.height(48.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Transparent,
-                contentColor = MariGold
-            )
-        ) {
             Text(
                 text = buttonText,
                 color = DarkElectricBlue,

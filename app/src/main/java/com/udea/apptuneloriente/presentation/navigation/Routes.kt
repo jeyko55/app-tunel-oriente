@@ -7,4 +7,5 @@ object Routes {
     val HOME_SCREEN = "homeScreen"
     val MANAGEMENT_SCREEN = "managementScreen"
     val ADD_EVENT_SCREEN = "addEventScreen"
+    val STATE_ADMIN_SCREEN = "stateAdminScreen"
 }
