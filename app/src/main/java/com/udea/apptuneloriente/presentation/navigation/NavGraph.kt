@@ -47,9 +47,7 @@ fun NavGraph(
             }
             composable(route = Routes.RECOVER_PASSWORD_SCREEN) {
                 RecoverPasswordScreen(
-                    onSendSelected = {
-                         navController.navigate(Routes.LOGIN_SCREEN)
-                    }
+
                 )
             }
             composable(route = Routes.HOME_SCREEN) {

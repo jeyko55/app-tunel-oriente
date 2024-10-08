@@ -29,18 +29,20 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.udea.apptuneloriente.R
 import com.udea.apptuneloriente.presentation.components.CustomButton
+import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
 import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
 import com.udea.apptuneloriente.ui.theme.MariGold
 
 @Composable
 fun RecoverPasswordScreen(
-    onSendSelected: () -> Unit,
+    authViewModel: AuthViewModel = viewModel(),
 ) {
     var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var errorMessage by remember { mutableStateOf("") }
+    val emailSent by authViewModel.emailSent
+    val errorMessage by authViewModel.errorMessage
 
 
 
@@ -77,8 +79,6 @@ fun RecoverPasswordScreen(
         )
 
         Spacer(modifier = Modifier.height(80.dp))
-
-
 
         Box(
             modifier = Modifier.width(220.dp),
@@ -128,10 +128,30 @@ fun RecoverPasswordScreen(
 
         CustomButton(
             text = stringResource(id = R.string.send),
-            onClick = { onSendSelected() }
+            onClick = {
+                authViewModel.recoverPassword(email)
+
+            }
         )
 
         Spacer(modifier = Modifier.height(16.dp))
+
+        // Mostrar mensajes de éxito o error
+        if (emailSent) {
+            Text(
+                text = "Correo de recuperación enviado. Revisa tu bandeja de entrada.",
+                color = Color.Green,
+                textAlign = TextAlign.Center
+            )
+        }
+
+        if (errorMessage.isNotEmpty()) {
+            Text(
+                text = errorMessage,
+                color = Color.Red,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
 

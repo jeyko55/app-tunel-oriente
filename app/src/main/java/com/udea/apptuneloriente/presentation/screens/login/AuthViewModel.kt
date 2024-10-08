@@ -1,5 +1,6 @@
 package com.udea.apptuneloriente.presentation.screens.login
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,6 +16,9 @@ class AuthViewModel() : ViewModel() {
     init {
         checkAuthStatus()
     }
+
+    val emailSent = mutableStateOf(false)
+    val errorMessage = mutableStateOf("")
 
     fun checkAuthStatus() {
         if (auth.currentUser == null) {
@@ -63,5 +67,20 @@ class AuthViewModel() : ViewModel() {
     fun signOut() {
         auth.signOut()
         _authState.value = AuthState.UnAuthenticated
+    }
+
+    fun recoverPassword(email: String) {
+        if (email.isNotEmpty()) {
+            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        emailSent.value = true
+                    } else {
+                        errorMessage.value = "Error: ${task.exception?.message}"
+                    }
+                }
+        } else {
+            errorMessage.value = "Por favor, ingresa un correo válido."
+        }
     }
 }
