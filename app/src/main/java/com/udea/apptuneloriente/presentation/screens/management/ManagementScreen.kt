@@ -16,18 +16,18 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Logout
+import androidx.compose.material.icons.filled.RotateLeft
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material.icons.filled.RotateLeft
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
@@ -39,14 +39,18 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.udea.apptuneloriente.R
+import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
 import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
 import com.udea.apptuneloriente.ui.theme.MariGold
-import kotlin.text.append
+
 
 @Composable
 fun ManagementScreen(
+    authViewModel: AuthViewModel,
+    onSignOutSelected: () -> Unit,
     onAddSelected: () -> Unit,
-    onStateSelected: () -> Unit
+    onStateSelected: () -> Unit,
+    // onHistorySelected: () -> Unit
 ) {
     val jostFontFamily = FontFamily(
         Font(R.font.jost, FontWeight.Normal),
@@ -62,6 +66,35 @@ fun ManagementScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        IconButton(
+            onClick = {
+                authViewModel.signOut()   // Cerrar sesión
+                onSignOutSelected()       // Redirigir al usuario a la pantalla de login
+            },
+            modifier = Modifier
+                .size(48.dp)
+                .align(Alignment.End)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(48.dp)
+                    .background(
+                        color = MariGold,
+                        shape = CircleShape
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Logout,
+                    contentDescription = "Cerrar sesión",
+                    tint = Color.White,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(40.dp))
+
         Text(
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center,
@@ -110,6 +143,7 @@ fun ManagementScreen(
         )
     }
 }
+
 
 @Composable
 fun RowItem(

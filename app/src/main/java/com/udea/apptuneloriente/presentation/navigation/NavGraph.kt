@@ -10,8 +10,8 @@ import com.udea.apptuneloriente.presentation.screens.homescreen.HomeScreen
 import com.udea.apptuneloriente.presentation.screens.initial.InitialScreen
 import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
 import com.udea.apptuneloriente.presentation.screens.login.LoginScreen
-import com.udea.apptuneloriente.presentation.screens.recoverpassword.RecoverPasswordScreen
 import com.udea.apptuneloriente.presentation.screens.management.ManagementScreen
+import com.udea.apptuneloriente.presentation.screens.recoverpassword.RecoverPasswordScreen
 import com.udea.apptuneloriente.presentation.screens.stateadmin.StateAdminScreen
 
 @Composable
@@ -59,12 +59,20 @@ fun NavGraph(
             }
             composable(route = Routes.MANAGEMENT_SCREEN) {
                 ManagementScreen (
+                    authViewModel,
+                    onSignOutSelected = {
+                        navController.navigate(Routes.LOGIN_SCREEN)
+                    },
                     onAddSelected = {
                         navController.navigate(Routes.ADD_EVENT_SCREEN)
                     },
                     onStateSelected = {
                         navController.navigate(Routes.STATE_ADMIN_SCREEN)
+                    },
+                    /* onHistorySelected = {
+                        navController.navigate(Routes.HISTORY_SCREEN)
                     }
+                    */
                 )
             }
             composable(route = Routes.ADD_EVENT_SCREEN) {
