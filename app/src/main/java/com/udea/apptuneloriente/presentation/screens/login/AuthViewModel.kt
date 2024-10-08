@@ -71,10 +71,26 @@ class AuthViewModel() : ViewModel() {
 
     fun recoverPassword(email: String) {
         if (email.isNotEmpty()) {
-            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+            // Verifica si el email existe
+            FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        emailSent.value = true
+                        // Verifica si hay métodos de inicio de sesión para el correo
+                        val signInMethods = task.result?.signInMethods
+                        if (signInMethods != null && signInMethods.isNotEmpty()) {
+                            // El correo existe, envía el correo de recuperación
+                            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                                .addOnCompleteListener { resetTask ->
+                                    if (resetTask.isSuccessful) {
+                                        emailSent.value = true
+                                    } else {
+                                        errorMessage.value = "Error: ${resetTask.exception?.message}"
+                                    }
+                                }
+                        } else {
+                            // El correo no está registrado
+                            errorMessage.value = "El correo no está registrado."
+                        }
                     } else {
                         errorMessage.value = "Error: ${task.exception?.message}"
                     }
@@ -83,4 +99,5 @@ class AuthViewModel() : ViewModel() {
             errorMessage.value = "Por favor, ingresa un correo válido."
         }
     }
+
 }
