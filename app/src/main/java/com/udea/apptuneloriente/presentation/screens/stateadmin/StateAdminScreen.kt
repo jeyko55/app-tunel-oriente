@@ -50,11 +50,9 @@ import com.udea.apptuneloriente.ui.theme.MariGold
 
 @Composable
 fun StateAdminScreen(
-
+    onEndSelected: () -> Unit,
+    onEditSelected: () -> Unit
 ) {
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -117,23 +115,22 @@ fun StateAdminScreen(
                 Spacer(modifier = Modifier.width(10.dp))
 
                 Column(
-                    horizontalAlignment = Alignment.CenterHorizontally // Centrar horizontalmente los elementos
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Icon(
-                        imageVector = Icons.Default.MinorCrash, // Puedes usar un ícono relacionado con accidente
+                        imageVector = Icons.Default.MinorCrash,
                         contentDescription = "Accidente",
-                        tint = Color.White, // Ícono de color blanco
-                        modifier = Modifier.size(32.dp) // Tamaño del ícono
+                        tint = Color.White,
+                        modifier = Modifier.size(32.dp)
                     )
 
-                    Spacer(modifier = Modifier.height(4.dp)) // Espacio entre ícono y texto
+                    Spacer(modifier = Modifier.height(4.dp))
 
-                    // Texto "Accidente" debajo del ícono
                     Text(
                         text = "Accidente",
                         color = Color.White,
                         fontSize = 18.sp,
-                        fontWeight = FontWeight.Normal, // Sin negrita
+                        fontWeight = FontWeight.Normal,
                         fontFamily = jostFontFamily
                     )
                 }
@@ -141,7 +138,6 @@ fun StateAdminScreen(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Texto "Tiempo estimado" con estilo
             Text(
                 text = "TIEMPO ESTIMADO:",
                 color = Color.White,
@@ -167,9 +163,16 @@ fun StateAdminScreen(
         CustomButton(
             text = "TERMINAR",
             fontWeight = FontWeight.Bold,
-            onClick = {
+            onClick = { onEndSelected() }
+        )
 
-            }
+        Spacer(modifier = Modifier.height(15.dp))
+
+        CustomButton(
+            text = "EDITAR",
+            fontWeight = FontWeight.Bold,
+            backgroundColor = DarkElectricBlue,
+            onClick = { onEditSelected() }
         )
     }
 }
