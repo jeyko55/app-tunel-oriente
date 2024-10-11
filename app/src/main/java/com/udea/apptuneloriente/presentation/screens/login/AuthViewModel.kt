@@ -1,5 +1,6 @@
 package com.udea.apptuneloriente.presentation.screens.login
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,6 +16,9 @@ class AuthViewModel() : ViewModel() {
     init {
         checkAuthStatus()
     }
+
+    val emailSent = mutableStateOf(false)
+    val errorMessage = mutableStateOf("")
 
     fun checkAuthStatus() {
         if (auth.currentUser == null) {
@@ -64,4 +68,36 @@ class AuthViewModel() : ViewModel() {
         auth.signOut()
         _authState.value = AuthState.UnAuthenticated
     }
+
+    fun recoverPassword(email: String) {
+        if (email.isNotEmpty()) {
+            // Verifica si el email existe
+            FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Verifica si hay métodos de inicio de sesión para el correo
+                        val signInMethods = task.result?.signInMethods
+                        if (signInMethods != null && signInMethods.isNotEmpty()) {
+                            // El correo existe, envía el correo de recuperación
+                            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                                .addOnCompleteListener { resetTask ->
+                                    if (resetTask.isSuccessful) {
+                                        emailSent.value = true
+                                    } else {
+                                        errorMessage.value = "Error: ${resetTask.exception?.message}"
+                                    }
+                                }
+                        } else {
+                            // El correo no está registrado
+                            errorMessage.value = "El correo no está registrado."
+                        }
+                    } else {
+                        errorMessage.value = "Error: ${task.exception?.message}"
+                    }
+                }
+        } else {
+            errorMessage.value = "Por favor, ingresa un correo válido."
+        }
+    }
+
 }

@@ -69,9 +69,9 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.runtime.livedata)
 // Dependencias de Hilt
-    implementation("com.google.dagger:hilt-android:2.44")
+    implementation("com.google.dagger:hilt-android:2.52")
     implementation(libs.firebase.auth)  // Agregar esta dependencia
-    kapt("com.google.dagger:hilt-android-compiler:2.44")   // Agregar el compilador para Hilt
+    kapt("com.google.dagger:hilt-android-compiler:2.52")   // Agregar el compilador para Hilt
 
     implementation("com.jakewharton.timber:timber:5.0.1")
 
@@ -83,6 +83,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation ("androidx.compose.material:material-icons-extended:1.7.0")
+    implementation ("androidx.compose.material:material-icons-extended:1.7.3")
 
 }
