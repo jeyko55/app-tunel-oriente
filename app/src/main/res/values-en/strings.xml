@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TunelOriente</string>
+    <string name="welcome">WELCOME!</string>
+    <string name="text_welcome_screen">The TunelOriente app wants to help you
+detect closures in the Tunel de Oriente in time so you can reach your destination on time.</string>
+    <string name="enter">ENTER</string>
+    <string name="are_you_admin">Are you an administrator?</string>
+    <string name="enter_here">Enter here</string>
+    <string name="login">LOGIN</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="click_here">Click here</string>
+    <string name="recover_password">RECOVER PASSWORD</string>
+    <string name="recover_password_text">Enter the email associated with your account</string>
+    <string name="email_address">Email address</string>
+    <string name="send">SEND</string>
+    <string name="tunel_oriente">TunelOriente</string>
+    <string name="status">Status</string>
+    <string name="unavailable">Unavailable</string>
+    <string name="reason">Reason:</string>
+    <string name="accident">Accident</string>
+    <string name="estimated_time">Estimated time:</string>
+    <string name="need_to_travel">Need to travel?</string>
+    <string name="alternative_routes">Alternative routes</string>
+    <string name="history">History</string>
+    <string name="add_new_event">Add new event</string>
+    <string name="check_current_status">Check current status</string>
+    <string name="view_event_history">View event history</string>
+    <string name="add_event">Add event</string>
+    <string name="type">Type</string>
+    <string name="start_date">Start date</string>
+    <string name="estimated_time_event">Estimated time</string>
+    <string name="save">Save</string>
+</resources>

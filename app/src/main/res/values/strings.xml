@@ -1,3 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AppTunelOriente</string>
+    <string name="app_name">TunelOriente</string>
+    <string name="welcome">¡BIENVENIDO!</string>
+    <string name="text_welcome_screen">La aplicación TunelOriente quiere ayudarte
+a detectar oportunamente los cierres en el
+túnel de Oriente para que llegues a tiempo
+a tu destino</string>
+    <string name="enter">INGRESAR</string>
+    <string name="are_you_admin">¿Eres administrador?</string>
+    <string name="enter_here">Ingresa aquí</string>
+    <string name="login">INICIAR SESIÓN</string>
+    <string name="password">Contraseña</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="click_here">Click aquí</string>
+    <string name="recover_password">RECUPERAR CONTRASEÑA</string>
+    <string name="recover_password_text">Ingrese el correo electrónico asociado a su cuenta</string>
+    <string name="email_address">Correo electrónico</string>
+    <string name="send">ENVIAR</string>
+    <string name="tunel_oriente">TunelOriente</string>
+    <string name="status">Estado</string>
+    <string name="unavailable">No disponible</string>
+    <string name="reason">Motivo:</string>
+    <string name="accident">Accidente</string>
+    <string name="estimated_time">Tiempo estimado:</string>
+    <string name="need_to_travel">¿Necesita viajar?</string>
+    <string name="alternative_routes">Rutas alternas</string>
+    <string name="history">Historial</string>
+    <string name="add_new_event">Agregar nuevo evento</string>
+    <string name="check_current_status">Consultar estado actual</string>
+    <string name="view_event_history">Ver historial de eventos</string>
+    <string name="add_event">Agregar evento</string>
+    <string name="type">Tipo</string>
+    <string name="start_date">Fecha inicio</string>
+    <string name="estimated_time_event">Tiempo estimado</string>
+    <string name="save">Guardar</string>
 </resources>
