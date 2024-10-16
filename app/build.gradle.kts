@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
     implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
+
     implementation(libs.firebase.common.ktx)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth.ktx)

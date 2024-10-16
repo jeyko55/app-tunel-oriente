@@ -44,8 +44,6 @@ fun RecoverPasswordScreen(
     val emailSent by authViewModel.emailSent
     val errorMessage by authViewModel.errorMessage
 
-
-
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
