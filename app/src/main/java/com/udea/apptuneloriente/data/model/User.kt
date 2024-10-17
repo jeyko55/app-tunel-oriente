@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.domain.model
+package com.udea.apptuneloriente.data.model
 
 data class User(
     val id: String,

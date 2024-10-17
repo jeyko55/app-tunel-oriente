@@ -5,20 +5,23 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.udea.apptuneloriente.presentation.screens.addevent.AddEventScreen
+import com.udea.apptuneloriente.presentation.screens.authentication.login.AuthViewModel
+import com.udea.apptuneloriente.presentation.screens.authentication.login.LoginScreen
+import com.udea.apptuneloriente.presentation.screens.authentication.recoverpassword.RecoverPasswordScreen
 import com.udea.apptuneloriente.presentation.screens.homescreen.HomeScreen
 import com.udea.apptuneloriente.presentation.screens.initial.InitialScreen
-import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
-import com.udea.apptuneloriente.presentation.screens.login.LoginScreen
 import com.udea.apptuneloriente.presentation.screens.management.ManagementScreen
-import com.udea.apptuneloriente.presentation.screens.recoverpassword.RecoverPasswordScreen
-import com.udea.apptuneloriente.presentation.screens.stateadmin.StateAdminScreen
-import com.udea.apptuneloriente.presentation.screens.editstate.EditStateScreen
+import com.udea.apptuneloriente.presentation.screens.management.ManagementViewModel
+import com.udea.apptuneloriente.presentation.screens.management.addevent.AddEventScreen
+import com.udea.apptuneloriente.presentation.screens.management.editstate.EditStateScreen
+import com.udea.apptuneloriente.presentation.screens.management.stateadmin.StateAdminScreen
 
 @Composable
 fun NavGraph(
     authViewModel: AuthViewModel,
-) {
+    managementViewModel: ManagementViewModel,
+
+    ) {
     val navController: NavHostController = rememberNavController()
 
     NavHost(
@@ -59,6 +62,7 @@ fun NavGraph(
             composable(route = Routes.MANAGEMENT_SCREEN) {
                 ManagementScreen (
                     authViewModel,
+                    managementViewModel,
                     onSignOutSelected = {
                         navController.navigate(Routes.LOGIN_SCREEN)
                     },
@@ -76,7 +80,7 @@ fun NavGraph(
             }
             composable(route = Routes.ADD_EVENT_SCREEN) {
                 AddEventScreen(
-
+                    managementViewModel,
                 )
             }
             composable(route = Routes.STATE_ADMIN_SCREEN) {

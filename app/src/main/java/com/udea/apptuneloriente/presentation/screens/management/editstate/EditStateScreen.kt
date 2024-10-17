@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.screens.editstate
+package com.udea.apptuneloriente.presentation.screens.management.editstate
 
 import android.app.TimePickerDialog
 import androidx.compose.foundation.background

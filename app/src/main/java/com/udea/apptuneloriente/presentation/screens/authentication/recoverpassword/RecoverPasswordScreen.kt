@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.screens.recoverpassword
+package com.udea.apptuneloriente.presentation.screens.authentication.recoverpassword
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.udea.apptuneloriente.R
 import com.udea.apptuneloriente.presentation.components.CustomButton
-import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
+import com.udea.apptuneloriente.presentation.screens.authentication.login.AuthViewModel
 import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
 import com.udea.apptuneloriente.ui.theme.MariGold
 

@@ -1,19 +1,16 @@
-package com.udea.apptuneloriente.presentation.screens.addevent
+package com.udea.apptuneloriente.presentation.screens.management.addevent
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material.icons.filled.CalendarToday
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -22,13 +19,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -36,32 +30,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.udea.apptuneloriente.R
+import com.udea.apptuneloriente.data.model.Event
 import com.udea.apptuneloriente.presentation.components.CustomButton
-import com.udea.apptuneloriente.presentation.screens.login.AuthState
+import com.udea.apptuneloriente.presentation.screens.management.ManagementViewModel
 import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
-import com.udea.apptuneloriente.ui.theme.MariGold
 import java.util.Calendar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddEventScreen() {
+fun AddEventScreen(managementViewModel: ManagementViewModel) {
     var type by remember { mutableStateOf("") }
     var isDropdownExpanded by remember { mutableStateOf(false) }
     val options = listOf("Accidente", "Mantenimiento")
 
     var date by remember { mutableStateOf("") }
-    val context = LocalContext.current
-
     var time by remember { mutableStateOf("") }
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -208,9 +199,19 @@ fun AddEventScreen() {
         CustomButton(
             text = "GUARDAR",
             onClick = {
-                // Implementar la lógica para guardar el evento
-                Toast.makeText(context, "Evento guardado", Toast.LENGTH_SHORT).show()
-            },
+                // Verificar que los campos no estén vacíos
+                if (type.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty()) {
+                    val newEvent = Event(
+                        type = type,
+                        startDate = date,
+                        estimatedTime = time
+                    )
+                    managementViewModel.createEvent(newEvent)
+                    Toast.makeText(context, "Evento guardado", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+                }
+            }
         )
     }
 }

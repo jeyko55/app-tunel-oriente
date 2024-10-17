@@ -41,7 +41,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.udea.apptuneloriente.R
-import com.udea.apptuneloriente.presentation.screens.login.AuthViewModel
+import com.udea.apptuneloriente.presentation.screens.authentication.login.AuthViewModel
 import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
 import com.udea.apptuneloriente.ui.theme.MariGold
 
@@ -60,11 +60,12 @@ fun ManagementScreen(
         Font(R.font.jost_bold, FontWeight.Bold)
     )
 
-    val events by managementViewModel.getEvents().collectAsState(emptyList())
+    val events by managementViewModel.events.collectAsState()
 
     val errorState by managementViewModel.errorState.collectAsState()
 
-    val name = "mariacatalinac"
+    val name = authViewModel.userNameFromEmail.value
+
 
     Column(
         modifier = Modifier

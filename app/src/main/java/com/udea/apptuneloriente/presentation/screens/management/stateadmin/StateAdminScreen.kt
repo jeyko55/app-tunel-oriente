@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.screens.stateadmin
+package com.udea.apptuneloriente.presentation.screens.management.stateadmin
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -44,7 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.udea.apptuneloriente.R
 import com.udea.apptuneloriente.presentation.components.CustomButton
-import com.udea.apptuneloriente.presentation.screens.login.AuthState
+import com.udea.apptuneloriente.presentation.screens.authentication.login.AuthState
 import com.udea.apptuneloriente.ui.theme.DarkElectricBlue
 import com.udea.apptuneloriente.ui.theme.MariGold
 

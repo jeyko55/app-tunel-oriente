@@ -1,4 +1,4 @@
-package com.udea.apptuneloriente.presentation.screens.login
+package com.udea.apptuneloriente.presentation.screens.authentication.login
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
