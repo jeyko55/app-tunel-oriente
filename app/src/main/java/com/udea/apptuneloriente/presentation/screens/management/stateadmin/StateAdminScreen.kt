@@ -163,7 +163,11 @@ fun StateAdminScreen(
         CustomButton(
             text = "TERMINAR",
             fontWeight = FontWeight.Bold,
-            onClick = { onEndSelected() }
+            onClick = { onEndSelected() },
+            modifier = Modifier
+                .height(48.dp)
+                .width(220.dp),
+            fontSize = 20.sp,
         )
 
         Spacer(modifier = Modifier.height(15.dp))
@@ -172,7 +176,11 @@ fun StateAdminScreen(
             text = "EDITAR",
             fontWeight = FontWeight.Bold,
             backgroundColor = DarkElectricBlue,
-            onClick = { onEditSelected() }
+            onClick = { onEditSelected() },
+            modifier = Modifier
+                .height(48.dp)
+                .width(220.dp),
+            fontSize = 20.sp,
         )
     }
 }

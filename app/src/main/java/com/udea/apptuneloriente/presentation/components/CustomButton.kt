@@ -13,13 +13,14 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.udea.apptuneloriente.R
 import com.udea.apptuneloriente.ui.theme.MariGold
 
 @Composable
-fun CustomButton(text: String, onClick: () -> Unit, enabled: Boolean = true, fontWeight: FontWeight = FontWeight.Normal, backgroundColor: Color = MariGold) {
+fun CustomButton(text: String, onClick: () -> Unit, enabled: Boolean = true, fontWeight: FontWeight = FontWeight.Normal, backgroundColor: Color = MariGold, fontSize: TextUnit = 16.sp, modifier: Modifier = Modifier) {
 
     val jostFontFamily = FontFamily(
         Font(R.font.jost, FontWeight.Normal),
@@ -28,9 +29,7 @@ fun CustomButton(text: String, onClick: () -> Unit, enabled: Boolean = true, fon
 
     Button(
         onClick = onClick,
-        modifier = Modifier
-            .height(48.dp)
-            .width(220.dp),
+        modifier = modifier,
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor
         ),
@@ -42,7 +41,7 @@ fun CustomButton(text: String, onClick: () -> Unit, enabled: Boolean = true, fon
             fontFamily = jostFontFamily,
             fontWeight = fontWeight,
             fontStyle = FontStyle.Normal,
-            fontSize = 20.sp,
+            fontSize = fontSize,
         )
     }
 }

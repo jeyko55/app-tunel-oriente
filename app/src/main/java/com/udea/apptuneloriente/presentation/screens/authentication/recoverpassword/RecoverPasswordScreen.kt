@@ -128,8 +128,11 @@ fun RecoverPasswordScreen(
             text = stringResource(id = R.string.send),
             onClick = {
                 authViewModel.recoverPassword(email)
-
-            }
+            },
+            modifier = Modifier
+                .height(48.dp)
+                .width(220.dp),
+            fontSize = 20.sp,
         )
 
         Spacer(modifier = Modifier.height(16.dp))

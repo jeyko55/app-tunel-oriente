@@ -1,6 +1,7 @@
 package com.udea.apptuneloriente.presentation.screens.management.editstate
 
 import android.app.TimePickerDialog
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -40,6 +41,8 @@ fun EditStateScreen() {
     var tempSecond by remember { mutableStateOf(0) }
     var selectedReason by remember { mutableStateOf("Accidente") }
     var isAvailable by remember { mutableStateOf(false) }
+
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -207,9 +210,9 @@ fun EditStateScreen() {
 
             if (showTimePickerDialog) {
                 TimePickerDialog(
-                    LocalContext.current,
+                    context,
                     { _, hour, minute ->
-                        tempHour = hour
+                        tempHour = if (hour == 0) 24 else hour
                         tempMinute = minute
                         showTimePickerDialog = false
                         showSecondsPickerDialog = true
@@ -222,22 +225,61 @@ fun EditStateScreen() {
                 AlertDialog(
                     onDismissRequest = { showSecondsPickerDialog = false },
                     confirmButton = {
-                        TextButton(onClick = {
-                            selectedTime = String.format("%02d:%02d:%02d", tempHour, tempMinute, tempSecond)
-                            showSecondsPickerDialog = false
-                        }) {
-                            Text("OK")
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.Center,
+                        ) {
+                            CustomButton(
+                                text = "OK",
+                                onClick = {
+                                    selectedTime = String.format("%02d:%02d:%02d", tempHour, tempMinute, tempSecond)
+                                    showSecondsPickerDialog = false
+                                },
+                                enabled = true,
+                                fontWeight = FontWeight.Normal,
+                                backgroundColor = MariGold,
+                                fontSize = 16.sp,
+                                modifier = Modifier
+                                    .wrapContentWidth()
+                                    .wrapContentHeight()
+                                    .padding(4.dp)
+                            )
+                            CustomButton(
+                                text = "CANCELAR",
+                                onClick = { showSecondsPickerDialog = false },
+                                enabled = true,
+                                fontWeight = FontWeight.Normal,
+                                backgroundColor = MariGold,
+                                fontSize = 16.sp,
+                                modifier = Modifier
+                                    .wrapContentWidth()
+                                    .wrapContentHeight()
+                                    .padding(4.dp)
+                            )
                         }
                     },
-                    dismissButton = {
-                        TextButton(onClick = { showSecondsPickerDialog = false }) {
-                            Text("Cancelar")
+                    title = {
+                        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                            Text(
+                                text = "Seleccionar segundos",
+                                fontFamily = jostFontFamily,
+                                fontStyle = FontStyle.Normal,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 22.sp,
+                                color = DarkElectricBlue
+                            )
                         }
                     },
-                    title = { Text("Seleccionar segundos") },
                     text = {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text(text = "$tempSecond segundos")
+                            Text(
+                                text = "$tempSecond segundos",
+                                fontFamily = jostFontFamily,
+                                fontStyle = FontStyle.Normal,
+                                fontSize = 20.sp,
+                                color = DarkElectricBlue
+                            )
+                            Spacer(modifier = Modifier.height(14.dp))
                             Slider(
                                 value = tempSecond.toFloat(),
                                 onValueChange = { tempSecond = it.toInt() },
@@ -254,8 +296,13 @@ fun EditStateScreen() {
         CustomButton(
             text = "GUARDAR",
             onClick = {
-                // Acción para el botón
-            }
+                Toast.makeText(context, "Evento guardado", Toast.LENGTH_SHORT).show()
+            },
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .height(48.dp)
+                .width(220.dp),
+            fontSize = 20.sp,
         )
     }
 }

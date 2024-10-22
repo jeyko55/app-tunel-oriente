@@ -124,7 +124,7 @@ fun ManagementScreen(
             lineHeight = 40.sp
         )
 
-        Spacer(modifier = Modifier.height(100.dp))
+        Spacer(modifier = Modifier.height(80.dp))
 
         RowItem(
             icon = Icons.Filled.Add,

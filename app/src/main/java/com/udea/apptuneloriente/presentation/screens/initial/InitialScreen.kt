@@ -94,7 +94,11 @@ fun InitialScreen(
 
         CustomButton(
             text = stringResource(id = R.string.enter),
-            onClick = { onEnterSelected() }
+            onClick = { onEnterSelected() },
+            modifier = Modifier
+                .height(48.dp)
+                .width(220.dp),
+            fontSize = 20.sp,
         )
 
         Spacer(modifier = Modifier.height(16.dp))

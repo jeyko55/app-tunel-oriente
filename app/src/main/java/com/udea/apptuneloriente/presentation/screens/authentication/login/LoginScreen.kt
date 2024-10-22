@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -145,7 +146,11 @@ fun LoginScreen(
             onClick = {
                 authViewModel.login(email, password)
             },
-            enabled = authState.value != AuthState.Loading
+            enabled = authState.value != AuthState.Loading,
+            modifier = Modifier
+                .height(48.dp)
+                .width(220.dp),
+            fontSize = 20.sp,
         )
 
         Spacer(modifier = Modifier.height(16.dp))
