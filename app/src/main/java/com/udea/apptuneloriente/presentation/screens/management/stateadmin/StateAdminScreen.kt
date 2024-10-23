@@ -75,6 +75,15 @@ fun StateAdminScreen(
 
         Spacer(modifier = Modifier.height(80.dp))
 
+        Text(
+            text = "ESTADO",
+            color = MariGold,
+            fontFamily = jostFontFamily,
+            fontWeight = FontWeight.Bold,
+            fontStyle = FontStyle.Normal,
+            fontSize = 32.sp,
+        )
+
         Column(
             modifier = Modifier
                 .width(300.dp)
@@ -158,7 +167,7 @@ fun StateAdminScreen(
             )
         }
 
-        Spacer(modifier = Modifier.height(100.dp))
+        Spacer(modifier = Modifier.height(80.dp))
 
         CustomButton(
             text = "TERMINAR",

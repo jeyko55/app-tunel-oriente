@@ -1,6 +1,10 @@
 package com.udea.apptuneloriente.presentation.navigation
 
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -23,6 +27,7 @@ fun NavGraph(
 
     ) {
     val navController: NavHostController = rememberNavController()
+    val context = LocalContext.current
 
     NavHost(
         navController = navController,
@@ -56,7 +61,18 @@ fun NavGraph(
             }
             composable(route = Routes.HOME_SCREEN) {
                 HomeScreen(
+                    onRoutesSelected = {
+                        val gmmIntentUri = Uri.parse("https://www.google.com/maps/dir/?api=1&destination=Túnel+de+Oriente")  // URL de Google Maps
+                        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                        mapIntent.setPackage("com.google.android.apps.maps")
 
+                        // Verifica si hay una aplicación que pueda manejar el Intent
+                        if (mapIntent.resolveActivity(context.packageManager) != null) {
+                            context.startActivity(mapIntent)
+                        } else {
+                            Toast.makeText(context, "Google Maps no está instalado", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 )
             }
             composable(route = Routes.MANAGEMENT_SCREEN) {
